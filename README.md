@@ -1,0 +1,1 @@
+# awezomestore_api
