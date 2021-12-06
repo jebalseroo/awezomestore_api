@@ -1,0 +1,18 @@
+type Category{
+  id: Int
+  name: String
+  description: String
+}
+
+input GetCategory{
+  id: Int
+}
+
+type Query{
+  getCategory: [Category]
+}
+
+type Mutation{
+  createCategory(category: GetCategory): Category
+  updateCategory(category: GetCategory): Category
+}
