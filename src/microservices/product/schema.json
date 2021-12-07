@@ -1,0 +1,138 @@
+#
+#   Schemas DB
+#
+
+# User
+type User {
+  id: Int
+  role: Int
+}
+
+# Product
+type Product {
+  id: Int
+  user_id: Int
+  name: String
+  description: String
+  stock: Int
+}
+
+# ShoppingCart
+type ShoppingCart {
+  id: Int
+  total_cost: Float
+}
+
+# Category
+type Category {
+  id: Int
+  name: String
+  description: String
+}
+
+# Subcategory
+type Subcategory {
+  id: Int
+  category_id: Int
+  name: String
+  description: String
+}
+
+# Comment
+type Comment {
+  id: Int
+  user_id: Int
+  product_id: Int
+  comment: String
+  type: Int
+  level: Int
+}
+
+# Price
+type Price {
+  id: Int
+  product_id: Int
+  price: Float
+  active: Boolean
+  description: String
+}
+
+# Score
+type Score {
+  id: Int
+  user_id: Int
+  product_id: Int
+  score: Float
+  comment: String
+}
+
+#
+#   Inputs
+#
+
+input ID{
+  id: Int
+}
+
+
+#
+#   Output
+#
+
+
+
+#
+#   Query
+#
+
+type Query{
+  # User
+  getUser: [User]
+
+  # Product
+  getProduct: [Product]
+
+  # ShoppingCart
+  getShoppingCart: [ShoppingCart]
+
+  # Category
+  getCategory: [Category]
+
+  # Subcategory
+  getSubcategory: [Subcategory]
+
+  # Comment
+  getComment: [Comment]
+
+  # Price
+  getPrice: [Price]
+
+  # Score:
+  getScore: [Score]
+
+}
+
+#
+#   Mutation
+#
+
+type Mutation{
+  # User
+
+  # Product
+
+  # ShoppingCart
+
+  # Category
+  createCategory(category: ID): Category
+  updateCategory(category: ID): Category
+
+  # Subcategory
+
+  # Comment
+
+  # Price
+
+  # Score
+
+}
