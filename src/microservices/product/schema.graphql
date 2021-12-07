@@ -70,15 +70,71 @@ type Score {
 #   Inputs
 #
 
-input ID{
+input InputId{
   id: Int
+}
+
+# User
+input InputUser {
+  role: Int!
+}
+
+# Product
+input InputProduct {
+  user_id: Int!
+  name: String!
+  description: String!
+  stock: Int!
+}
+
+# ShoppingCart
+input InputShoppingCart {
+  total_cost: Float!
+}
+
+# Category
+input InputCategory {
+  id: Int
+  name: String!
+  description: String!
+}
+
+# Subcategory
+input InputSubcategory {
+  category_id: Int!
+  name: String!
+  description: String!
+}
+
+# Comment
+input InputComment {
+  user_id: Int!
+  product_id: Int!
+  comment: String!
+  type: Int!
+  level: Int!
+}
+
+# Price
+input InputPrice {
+  product_id: Int!
+  price: Float!
+  active: Boolean!
+  description: String!
+}
+
+# Score
+input InputScore {
+  user_id: Int!
+  product_id: Int!
+  score: Float!
+  comment: String!
 }
 
 
 #
 #   Output
 #
-
 
 
 #
@@ -109,7 +165,6 @@ type Query{
 
   # Score:
   getScore: [Score]
-
 }
 
 #
@@ -124,8 +179,9 @@ type Mutation{
   # ShoppingCart
 
   # Category
-  createCategory(category: ID): Category
-  updateCategory(category: ID): Category
+  createCategory(data: InputCategory!): Category!
+  updateCategory(data: InputCategory!): Category!
+  deleteCategory(data: InputId): Int!
 
   # Subcategory
 

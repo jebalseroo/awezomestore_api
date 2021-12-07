@@ -12,4 +12,7 @@ module.exports = {
   updateCategory: async (root, {data}) => {
     return await HttpProvider.put(`${baseUrl}/category`, data);
   },
+  deleteCategory: async (root, {data}) => {
+    return await HttpProvider.deleted(`${baseUrl}/category`, data);
+  },
 };
