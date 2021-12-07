@@ -2,7 +2,7 @@ version: '3'
 services:
     user-server:
         container_name: api
-        network_mode: "host"
+        #network_mode: "host"
         build: .
         ports:
             - 4010:4010
